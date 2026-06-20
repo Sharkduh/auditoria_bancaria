@@ -52,31 +52,35 @@ Para dar suporte à tomada de decisão executiva, foi desenvolvido um painel int
 
 ## 🛠️ Como Executar o Projeto Localmente
 
-1. **Clone o repositório:**
-   ```bash
-   git clone [https://github.com/SEU_USUARIO/projeto_conciliacao_bancaria.git](https://github.com/SEU_USUARIO/projeto_conciliacao_bancaria.git)
-   cd projeto_conciliacao_bancaria
+Siga os passos abaixo na ordem cronológica para replicar o ambiente virtual e processar as camadas da Arquitetura Medalhão:
 
-2  **Crie e ative seu ambiente virtual:**
+### 1. Clonar o Repositório
+```bash
+git clone https://github.com/Sharkduh/auditoria_bancaria.git
+cd auditoria_bancaria
 
-  python -m venv .venv
-   source .venv/bin/activate
+2. Crie e ative seu ambiente virtual:
+python -m venv .venv
+source .venv/bin/activate
 
-3 **Instale as dependências contidas no manifesto:**
+3. Instale as dependências contidas no manifesto:
+Bash
 
 pip install -r requirements.txt
 
-4 **Execute o ecossistema de scripts na ordem cronológica do Pipeline:**
+4. Execute o ecossistema de scripts na ordem cronológica do Pipeline:
+Passo A: Gerar a base de dados bruta (Camada Bronze)
+python scripts/gerador_dados.py
 
-# Passo A: Gerar a base de dados bruta (Camada Bronze)
-   python scripts/gerador_dados.py
+Passo B: Executar a limpeza e mascaramento de sensibilidade (Camada Silver)
+python scripts/processamento_silver.py
 
-   # Passo B: Executar a limpeza e mascaramento de sensibilidade (Camada Silver)
-   python scripts/processamento_silver.py
+Passo C: Aplicar regras de negócio e join de conciliação (Camada Gold)
+python scripts/conciliacao_gold.py
 
-   # Passo C: Aplicar regras de negócio e join de conciliação (Camada Gold)
-   python scripts/conciliacao_gold.py
-
-5 **streamlit run scripts/app_dashboard.py**
-
+5. Executar o Painel de Auditoria Executiva
 streamlit run scripts/app_dashboard.py
+
+---
+
+```bash
