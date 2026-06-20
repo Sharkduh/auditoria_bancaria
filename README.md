@@ -56,3 +56,27 @@ Para dar suporte à tomada de decisão executiva, foi desenvolvido um painel int
    ```bash
    git clone [https://github.com/SEU_USUARIO/projeto_conciliacao_bancaria.git](https://github.com/SEU_USUARIO/projeto_conciliacao_bancaria.git)
    cd projeto_conciliacao_bancaria
+
+2  **Crie e ative seu ambiente virtual:**
+
+  python -m venv .venv
+   source .venv/bin/activate
+
+3 **Instale as dependências contidas no manifesto:**
+
+pip install -r requirements.txt
+
+4 **Execute o ecossistema de scripts na ordem cronológica do Pipeline:**
+
+# Passo A: Gerar a base de dados bruta (Camada Bronze)
+   python scripts/gerador_dados.py
+
+   # Passo B: Executar a limpeza e mascaramento de sensibilidade (Camada Silver)
+   python scripts/processamento_silver.py
+
+   # Passo C: Aplicar regras de negócio e join de conciliação (Camada Gold)
+   python scripts/conciliacao_gold.py
+
+5 **streamlit run scripts/app_dashboard.py**
+
+streamlit run scripts/app_dashboard.py
