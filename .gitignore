@@ -1,0 +1,6 @@
+venv_conciliacao/
+__pycache__/
+spark-3.5.1-bin-hadoop3/
+data/bronze/
+data/silver/
+data/gold/
