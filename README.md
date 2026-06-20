@@ -319,7 +319,6 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 ## 🙏 Agradecimentos
 
-- FIAP pela formação em Análise de Dados
 - Comunidade Python por ferramentas incríveis (DuckDB, Pandas, Streamlit)
 - Recrutadores que apreciam bom código e documentação! 🚀
 
